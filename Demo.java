@@ -9,22 +9,46 @@ public class Demo{
       multiplier--;
     }
   }
-/*
-  public static void printLoop(){
-    int multiplier=5;
-    for(int i=1;i<=5;i++){
-      for(int j=1;j<=multiplier;j++){
-        System.out.print(i);
-      }
-      System.out.println();
-      multiplier--;
+  public static String arrToString(int[]arr){
+    if (arr.length==0) return "{}";
+    String result="{";
+    for (int i=0;i<arr.length-1;i++){
+      result+=arr[i];
+      result+=", ";
     }
+    result+=arr[arr.length-1];
+    result+="}";
+    return result;
   }
-*/
+  public static String arrayDeepToString(int[][]arr){
+    String result="{";
+    for (int i=0;i<arr.length-1;i++){
+      result+=arrToString(arr[i]);
+      result+=", ";
+    }
+    result+=arrToString(arr[arr.length-1]);
+    result+="}";
+    return result;
+  }
   public static void main(String[] args){
+    /*
     if (args.length>0){
       int a=Integer.parseInt(args[0]);
       printLoop(a);
     } else printLoop(5);
+    */
+    int arr1[]=new int[1];
+    int arr2[]=new int[2];
+    int arr3[]=new int[3];
+    int arr4[]={};
+    int arr5[]=new int[5];
+    int[][]deep={arr1,arr2,arr3,arr4,arr5};
+    System.out.println(arrayDeepToString(deep).replace("}, ","},\n "));
   }
 }
+
+/*
+$ git add Demo.java
+$ git commit -m "message"
+$ git push
+*/
