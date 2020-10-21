@@ -40,7 +40,13 @@ public class Demo{
     return arr;
   }
   public static int[][] create2DArrayRandomized(int rows, int cols,int maxValue){
-    int[][]arr=new int[0][];
+    int[][]arr=new int[rows][];
+    for(int i=0;i<arr.length;i++){
+      arr[i]=new int[(int)(Math.random()*(cols+1))];
+      for(int j=0;j<arr[i].length;j++){
+        arr[i][j]=(int)(Math.random()*(maxValue+1));
+      }
+    }
     return arr;
   }
   public static void main(String[] args){
@@ -49,8 +55,14 @@ public class Demo{
       int a=Integer.parseInt(args[0]);
       printLoop(a);
     } else printLoop(5);
+    System.out.println(arrayDeepToString(
+      create2DArray(2,3,4)).replace("}, ","},\n "));
     */
-    System.out.println(arrayDeepToString(create2DArray(2,3,4)).replace("}, ","},\n "));
+    System.out.println(arrayDeepToString(
+      create2DArrayRandomized(6,4,4)).replace("}, ","},\n "));
+    System.out.println();
+    System.out.println(arrayDeepToString(
+      create2DArrayRandomized(4,10,100)).replace("}, ","},\n "));
   }
 }
 
