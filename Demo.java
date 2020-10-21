@@ -30,6 +30,19 @@ public class Demo{
     result+="}";
     return result;
   }
+  public static int[][] create2DArray(int rows,int cols,int maxValue){
+    int[][]arr=new int[rows][cols];
+    for(int i=0;i<arr.length;i++){
+      for(int j=0;j<arr[i].length;j++){
+        arr[i][j]=(int)(Math.random()*(maxValue+1));
+      }
+    }
+    return arr;
+  }
+  public static int[][] create2DArrayRandomized(int rows, int cols,int maxValue){
+    int[][]arr=new int[0][];
+    return arr;
+  }
   public static void main(String[] args){
     /*
     if (args.length>0){
@@ -37,13 +50,7 @@ public class Demo{
       printLoop(a);
     } else printLoop(5);
     */
-    int arr1[]=new int[1];
-    int arr2[]=new int[2];
-    int arr3[]=new int[3];
-    int arr4[]={};
-    int arr5[]=new int[5];
-    int[][]deep={arr1,arr2,arr3,arr4,arr5};
-    System.out.println(arrayDeepToString(deep).replace("}, ","},\n "));
+    System.out.println(arrayDeepToString(create2DArray(2,3,4)).replace("}, ","},\n "));
   }
 }
 
